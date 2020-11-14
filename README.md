@@ -231,14 +231,14 @@ aware of and agree upon. This consists of a small JSON file (e.g. call it `genes
     "istanbulBlock": 0
   },
   "alloc": {},
-  "coinbase": "0x0000000000000000000000000000000000000000",
-  "difficulty": "0x20000",
+  "coinbase": "Es0000000000000000000000000000000000000000",
+  "difficulty": "Es20000",
   "extraData": "",
-  "gasLimit": "0x2fefd8",
-  "nonce": "0x0000000000000042",
-  "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "timestamp": "0x00"
+  "gasLimit": "Es2fefd8",
+  "nonce": "Es0000000000000042",
+  "mixhash": "Es0000000000000000000000000000000000000000000000000000000000000000",
+  "parentHash": "Es0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp": "Es00"
 }
 ```
 
@@ -249,10 +249,10 @@ the accounts and populate the `alloc` field with their addresses.
 
 ```json
 "alloc": {
-  "0x0000000000000000000000000000000000000001": {
+  "Es0000000000000000000000000000000000000001": {
     "balance": "111111111"
   },
-  "0x0000000000000000000000000000000000000002": {
+  "Es0000000000000000000000000000000000000002": {
     "balance": "222222222"
   }
 }
@@ -303,9 +303,9 @@ also need to configure a miner to process transactions and create new blocks for
 #### Running a private miner
 
 Mining on the public EvolutionStellarToken network is a complex task as it's only feasible using GPUs,
-requiring an OpenCL or CUDA enabled `ethminer` instance. For information on such a
-setup, please consult the [EtherMining subreddit](https://www.reddit.com/r/EtherMining/)
-and the [ethminer](https://github.com/EvolutionStellarToken-mining/ethminer) repository.
+requiring an OpenCL or CUDA enabled `estminer` instance. For information on such a
+setup, please consult the [EtherMining subreddit](https://www.reddit.com/r/EstMining/)
+and the [estminer](https://github.com/EvolutionStellarToken-mining/estminer) repository.
 
 In a private network setting, however a single CPU miner instance is more than enough for
 practical purposes as it can produce a stable stream of blocks at the correct intervals
@@ -314,11 +314,11 @@ ones either). To start a `geth` instance for mining, run it with all your usual 
 by:
 
 ```shell
-$ geth <usual-flags> --mine --miner.threads=1 --etherbase=0x0000000000000000000000000000000000000000
+$ geth <usual-flags> --mine --miner.threads=1 --estbase=Es0000000000000000000000000000000000000000
 ```
 
 Which will start mining blocks and transactions on a single CPU thread, crediting all
-proceedings to the account specified by `--etherbase`. You can further tune the mining
+proceedings to the account specified by `--estbase`. You can further tune the mining
 by changing the default gas limit blocks converge to (`--targetgaslimit`) and the price
 transactions are accepted at (`--gasprice`).
 
