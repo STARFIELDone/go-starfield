@@ -16,7 +16,7 @@
 
 // Contains all the wrappers from the go-EvolutionStellarToken root package.
 
-package geth
+package gest
 
 import (
 	"errors"

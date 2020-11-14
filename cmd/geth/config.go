@@ -111,11 +111,11 @@ func defaultNodeConfig() node.Config {
 	cfg.Version = params.VersionWithCommit(gitCommit, gitDate)
 	cfg.HTTPModules = append(cfg.HTTPModules, "est")
 	cfg.WSModules = append(cfg.WSModules, "est")
-	cfg.IPCPath = "geth.ipc"
+	cfg.IPCPath = "gest.ipc"
 	return cfg
 }
 
-// makeConfigNode loads geth configuration and creates a blank node instance.
+// makeConfigNode loads gest configuration and creates a blank node instance.
 func makeConfigNode(ctx *cli.Context) (*node.Node, gethConfig) {
 	// Load defaults.
 	cfg := gethConfig{
@@ -158,7 +158,7 @@ func checkWhisper(ctx *cli.Context) {
 	}
 }
 
-// makeFullNode loads geth configuration and creates the EvolutionStellarToken backend.
+// makeFullNode loads gest configuration and creates the EvolutionStellarToken backend.
 func makeFullNode(ctx *cli.Context) (*node.Node, ethapi.Backend) {
 	stack, cfg := makeConfigNode(ctx)
 

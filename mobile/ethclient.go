@@ -16,7 +16,7 @@
 
 // Contains a wrapper for the EvolutionStellarToken client.
 
-package geth
+package gest
 
 import (
 	"math/big"

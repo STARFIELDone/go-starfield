@@ -13,28 +13,28 @@ import (
 type gethrpc struct {
 	name     string
 	rpc      *rpc.Client
-	geth     *testgeth
+	gest     *testgeth
 	nodeInfo *p2p.NodeInfo
 }
 
 func (g *gethrpc) killAndWait() {
-	g.geth.Kill()
-	g.geth.WaitExit()
+	g.gest.Kill()
+	g.gest.WaitExit()
 }
 
 func (g *gethrpc) callRPC(result interface{}, method string, args ...interface{}) {
 	if err := g.rpc.Call(&result, method, args...); err != nil {
-		g.geth.Fatalf("callRPC %v: %v", method, err)
+		g.gest.Fatalf("callRPC %v: %v", method, err)
 	}
 }
 
 func (g *gethrpc) addPeer(peer *gethrpc) {
-	g.geth.Logf("%v.addPeer(%v)", g.name, peer.name)
+	g.gest.Logf("%v.addPeer(%v)", g.name, peer.name)
 	enode := peer.getNodeInfo().Enode
 	peerCh := make(chan *p2p.PeerEvent)
 	sub, err := g.rpc.Subscribe(context.Background(), "admin", peerCh, "peerEvents")
 	if err != nil {
-		g.geth.Fatalf("subscribe %v: %v", g.name, err)
+		g.gest.Fatalf("subscribe %v: %v", g.name, err)
 	}
 	defer sub.Unsubscribe()
 	g.callRPC(nil, "admin_addPeer", enode)
@@ -42,11 +42,11 @@ func (g *gethrpc) addPeer(peer *gethrpc) {
 	timeout := time.After(dur)
 	select {
 	case ev := <-peerCh:
-		g.geth.Logf("%v received event: type=%v, peer=%v", g.name, ev.Type, ev.Peer)
+		g.gest.Logf("%v received event: type=%v, peer=%v", g.name, ev.Type, ev.Peer)
 	case err := <-sub.Err():
-		g.geth.Fatalf("%v sub error: %v", g.name, err)
+		g.gest.Fatalf("%v sub error: %v", g.name, err)
 	case <-timeout:
-		g.geth.Error("timeout adding peer after", dur)
+		g.gest.Error("timeout adding peer after", dur)
 	}
 }
 
@@ -66,7 +66,7 @@ func (g *gethrpc) waitSynced() {
 	g.callRPC(&result, "eth_syncing")
 	syncing, ok := result.(bool)
 	if ok && !syncing {
-		g.geth.Logf("%v already synced", g.name)
+		g.gest.Logf("%v already synced", g.name)
 		return
 	}
 
@@ -74,23 +74,23 @@ func (g *gethrpc) waitSynced() {
 	ch := make(chan interface{})
 	sub, err := g.rpc.Subscribe(context.Background(), "est", ch, "syncing")
 	if err != nil {
-		g.geth.Fatalf("%v syncing: %v", g.name, err)
+		g.gest.Fatalf("%v syncing: %v", g.name, err)
 	}
 	defer sub.Unsubscribe()
 	timeout := time.After(4 * time.Second)
 	select {
 	case ev := <-ch:
-		g.geth.Log("'syncing' event", ev)
+		g.gest.Log("'syncing' event", ev)
 		syncing, ok := ev.(bool)
 		if ok && !syncing {
 			break
 		}
-		g.geth.Log("Other 'syncing' event", ev)
+		g.gest.Log("Other 'syncing' event", ev)
 	case err := <-sub.Err():
-		g.geth.Fatalf("%v notification: %v", g.name, err)
+		g.gest.Fatalf("%v notification: %v", g.name, err)
 		break
 	case <-timeout:
-		g.geth.Fatalf("%v timeout syncing", g.name)
+		g.gest.Fatalf("%v timeout syncing", g.name)
 		break
 	}
 }
@@ -99,11 +99,11 @@ func startGethWithIpc(t *testing.T, name string, args ...string) *gethrpc {
 	g := &gethrpc{name: name}
 	args = append([]string{"--networkid=42", "--port=0", "--nousb"}, args...)
 	t.Logf("Starting %v with rpc: %v", name, args)
-	g.geth = runGeth(t, args...)
+	g.gest = runGeth(t, args...)
 	// wait before we can attach to it. TODO: probe for it properly
 	time.Sleep(1 * time.Second)
 	var err error
-	ipcpath := filepath.Join(g.geth.Datadir, "geth.ipc")
+	ipcpath := filepath.Join(g.gest.Datadir, "gest.ipc")
 	g.rpc, err = rpc.Dial(ipcpath)
 	if err != nil {
 		t.Fatalf("%v rpc connect: %v", name, err)

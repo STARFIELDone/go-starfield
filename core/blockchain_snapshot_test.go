@@ -36,15 +36,15 @@ import (
 
 // snapshotTest is a test case for snapshot recovery. It can be used for
 // simulating these scenarios:
-// (i)   Geth restarts normally with valid legacy snapshot
-// (ii)  Geth restarts normally with valid new-format snapshot
-// (iii) Geth restarts after the crash, with broken legacy snapshot
-// (iv)  Geth restarts after the crash, with broken new-format snapshot
-// (v)   Geth restarts normally, but it's requested to be rewound to a lower point via SetHead
-// (vi)  Geth restarts normally with a stale snapshot
+// (i)   Gest restarts normally with valid legacy snapshot
+// (ii)  Gest restarts normally with valid new-format snapshot
+// (iii) Gest restarts after the crash, with broken legacy snapshot
+// (iv)  Gest restarts after the crash, with broken new-format snapshot
+// (v)   Gest restarts normally, but it's requested to be rewound to a lower point via SetHead
+// (vi)  Gest restarts normally with a stale snapshot
 type snapshotTest struct {
 	legacy       bool   // Flag whether the loaded snapshot is in legacy format
-	crash        bool   // Flag whether the Geth restarts from the previous crash
+	crash        bool   // Flag whether the Gest restarts from the previous crash
 	restartCrash int    // Number of blocks to insert after the normal stop, then the crash happens
 	gapped       int    // Number of blocks to insert without enabling snapshot
 	setHead      uint64 // Block number to set head back to
@@ -108,7 +108,7 @@ func (tt *snapshotTest) dump() string {
 	return buffer.String()
 }
 
-// Tests a Geth restart with valid snapshot. Before the shutdown, all snapshot
+// Tests a Gest restart with valid snapshot. Before the shutdown, all snapshot
 // journal will be persisted correctly. In this case no snapshot recovery is
 // required.
 func TestRestartWithNewSnapshot(t *testing.T) {
@@ -145,7 +145,7 @@ func TestRestartWithNewSnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth restart with valid but "legacy" snapshot. Before the shutdown,
+// Tests a Gest restart with valid but "legacy" snapshot. Before the shutdown,
 // all snapshot journal will be persisted correctly. In this case no snapshot
 // recovery is required.
 func TestRestartWithLegacySnapshot(t *testing.T) {
@@ -182,7 +182,7 @@ func TestRestartWithLegacySnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was crashed and restarts with a broken snapshot. In this case the
+// Tests a Gest was crashed and restarts with a broken snapshot. In this case the
 // chain head should be rewound to the point with available state. And also the
 // new head should must be lower than disk layer. But there is no committed point
 // so the chain should be rewound to genesis and the disk layer should be left
@@ -221,7 +221,7 @@ func TestNoCommitCrashWithNewSnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was crashed and restarts with a broken snapshot. In this case the
+// Tests a Gest was crashed and restarts with a broken snapshot. In this case the
 // chain head should be rewound to the point with available state. And also the
 // new head should must be lower than disk layer. But there is only a low committed
 // point so the chain should be rewound to committed point and the disk layer
@@ -260,7 +260,7 @@ func TestLowCommitCrashWithNewSnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was crashed and restarts with a broken snapshot. In this case
+// Tests a Gest was crashed and restarts with a broken snapshot. In this case
 // the chain head should be rewound to the point with available state. And also
 // the new head should must be lower than disk layer. But there is only a high
 // committed point so the chain should be rewound to genesis and the disk layer
@@ -299,7 +299,7 @@ func TestHighCommitCrashWithNewSnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was crashed and restarts with a broken and "legacy format"
+// Tests a Gest was crashed and restarts with a broken and "legacy format"
 // snapshot. In this case the entire legacy snapshot should be discared
 // and rebuild from the new chain head. The new head here refers to the
 // genesis because there is no committed point.
@@ -337,7 +337,7 @@ func TestNoCommitCrashWithLegacySnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was crashed and restarts with a broken and "legacy format"
+// Tests a Gest was crashed and restarts with a broken and "legacy format"
 // snapshot. In this case the entire legacy snapshot should be discared
 // and rebuild from the new chain head. The new head here refers to the
 // block-2 because it's committed into the disk.
@@ -375,7 +375,7 @@ func TestLowCommitCrashWithLegacySnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was crashed and restarts with a broken and "legacy format"
+// Tests a Gest was crashed and restarts with a broken and "legacy format"
 // snapshot. In this case the entire legacy snapshot should be discared
 // and rebuild from the new chain head.
 //
@@ -418,7 +418,7 @@ func TestHighCommitCrashWithLegacySnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was running with snapshot enabled. Then restarts without
+// Tests a Gest was running with snapshot enabled. Then restarts without
 // enabling snapshot and after that re-enable the snapshot again. In this
 // case the snapshot should be rebuilt with latest chain head.
 func TestGappedNewSnapshot(t *testing.T) {
@@ -455,7 +455,7 @@ func TestGappedNewSnapshot(t *testing.T) {
 	})
 }
 
-// Tests a Geth was running with leagcy snapshot enabled. Then restarts
+// Tests a Gest was running with leagcy snapshot enabled. Then restarts
 // without enabling snapshot and after that re-enable the snapshot again.
 // In this case the snapshot should be rebuilt with latest chain head.
 func TestGappedLegacySnapshot(t *testing.T) {
@@ -492,7 +492,7 @@ func TestGappedLegacySnapshot(t *testing.T) {
 	})
 }
 
-// Tests the Geth was running with snapshot enabled and resetHead is applied.
+// Tests the Gest was running with snapshot enabled and resetHead is applied.
 // In this case the head is rewound to the target(with state available). After
 // that the chain is restarted and the original disk layer is kept.
 func TestSetHeadWithNewSnapshot(t *testing.T) {
@@ -529,7 +529,7 @@ func TestSetHeadWithNewSnapshot(t *testing.T) {
 	})
 }
 
-// Tests the Geth was running with snapshot(legacy-format) enabled and resetHead
+// Tests the Gest was running with snapshot(legacy-format) enabled and resetHead
 // is applied. In this case the head is rewound to the target(with state available).
 // After that the chain is restarted and the original disk layer is kept.
 func TestSetHeadWithLegacySnapshot(t *testing.T) {
@@ -566,9 +566,9 @@ func TestSetHeadWithLegacySnapshot(t *testing.T) {
 	})
 }
 
-// Tests the Geth was running with snapshot(legacy-format) enabled and upgrades
-// the disk layer journal(journal generator) to latest format. After that the Geth
-// is restarted from a crash. In this case Geth will find the new-format disk layer
+// Tests the Gest was running with snapshot(legacy-format) enabled and upgrades
+// the disk layer journal(journal generator) to latest format. After that the Gest
+// is restarted from a crash. In this case Gest will find the new-format disk layer
 // journal but with legacy-format diff journal(the new-format is never committed),
 // and the invalid diff journal is expected to be dropped.
 func TestRecoverSnapshotFromCrashWithLegacyDiffJournal(t *testing.T) {

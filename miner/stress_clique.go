@@ -170,7 +170,7 @@ func makeSealer(genesis *core.Genesis) (*node.Node, *est.EvolutionStellarToken, 
 	datadir, _ := ioutil.TempDir("", "")
 
 	config := &node.Config{
-		Name:    "geth",
+		Name:    "gest",
 		Version: params.Version,
 		DataDir: datadir,
 		P2P: p2p.Config{

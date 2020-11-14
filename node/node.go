@@ -113,7 +113,7 @@ func New(conf *Config) (*Node, error) {
 		return nil, err
 	}
 	// Ensure that the AccountManager method works before the node has started. We rely on
-	// this in cmd/geth.
+	// this in cmd/gest.
 	am, ephemeralKeystore, err := makeAccountManager(conf)
 	if err != nil {
 		return nil, err

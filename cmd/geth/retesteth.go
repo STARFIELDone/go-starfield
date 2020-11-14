@@ -58,11 +58,11 @@ var (
 	retestethCommand = cli.Command{
 		Action:      utils.MigrateFlags(retesteth),
 		Name:        "retesteth",
-		Usage:       "Launches geth in retesteth mode",
+		Usage:       "Launches gest in retesteth mode",
 		ArgsUsage:   "",
 		Flags:       []cli.Flag{rpcPortFlag},
 		Category:    "MISCELLANEOUS COMMANDS",
-		Description: `Launches geth in retesteth mode (no database, no network, only retesteth RPC interface)`,
+		Description: `Launches gest in retesteth mode (no database, no network, only retesteth RPC interface)`,
 	}
 )
 
@@ -838,7 +838,7 @@ func (api *RetestethAPI) StorageRangeAt(ctx context.Context,
 }
 
 func (api *RetestethAPI) ClientVersion(ctx context.Context) (string, error) {
-	return "Geth-" + params.VersionWithCommit(gitCommit, gitDate), nil
+	return "Gest-" + params.VersionWithCommit(gitCommit, gitDate), nil
 }
 
 func retesteth(ctx *cli.Context) error {

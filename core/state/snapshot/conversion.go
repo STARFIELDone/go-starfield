@@ -265,7 +265,7 @@ func generateTrieRoot(it Iterator, account common.Hash, generatorFn trieGenerato
 }
 
 // stdGenerate is a very basic hexary trie builder which uses the same Trie
-// as the rest of geth, with no enhancements or optimizations
+// as the rest of gest, with no enhancements or optimizations
 func stdGenerate(in chan (trieKV), out chan (common.Hash)) {
 	t, _ := trie.New(common.Hash{}, trie.NewDatabase(memorydb.New()))
 	for leaf := range in {
