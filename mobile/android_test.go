@@ -200,7 +200,7 @@ func TestAndroid(t *testing.T) {
 	defer os.Chdir(pwd)
 
 	// Create the skeleton of the Android project
-	for _, dir := range []string{"src/main", "src/androidTest/java/org/EvolutionStellarToken/gethtest", "libs"} {
+	for _, dir := range []string{"src/main", "src/androidTest/java/org/EvolutionStellarToken/gesttest", "libs"} {
 		err = os.MkdirAll(dir, os.ModePerm)
 		if err != nil {
 			t.Fatal(err)
@@ -214,7 +214,7 @@ func TestAndroid(t *testing.T) {
 	}
 	cp.CopyFile(filepath.Join("libs", "gest.aar"), "gest.aar")
 
-	if err = ioutil.WriteFile(filepath.Join("src", "androidTest", "java", "org", "EvolutionStellarToken", "gethtest", "AndroidTest.java"), []byte(androidTestClass), os.ModePerm); err != nil {
+	if err = ioutil.WriteFile(filepath.Join("src", "androidTest", "java", "org", "EvolutionStellarToken", "gesttest", "AndroidTest.java"), []byte(androidTestClass), os.ModePerm); err != nil {
 		t.Fatalf("failed to write Android test class: %v", err)
 	}
 	// Finish creating the project and run the tests via gradle
@@ -232,7 +232,7 @@ func TestAndroid(t *testing.T) {
 
 const androidManifest = `<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.EvolutionStellarToken.gethtest"
+          package="org.EvolutionStellarToken.gesttest"
 	  android:versionCode="1"
 	  android:versionName="1.0">
 

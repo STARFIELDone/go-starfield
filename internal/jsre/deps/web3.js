@@ -619,7 +619,7 @@ module.exports = SolidityTypeBytes;
 */
 /**
  * @file coder.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -906,7 +906,7 @@ module.exports = SolidityTypeDynamicBytes;
 */
 /**
  * @file formatters.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -1194,7 +1194,7 @@ module.exports = SolidityTypeInt;
 */
 /** 
  * @file param.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -1740,7 +1740,7 @@ if (typeof XMLHttpRequest === 'undefined') {
 */
 /** @file config.js
  * @authors:
- *   Marek Kotewicz <marek@ethdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -1821,7 +1821,7 @@ module.exports = {
 */
 /** 
  * @file sha3.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -1861,7 +1861,7 @@ module.exports = function (value, options) {
 */
 /**
  * @file utils.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -2498,11 +2498,11 @@ module.exports={
 /**
  * @file web3.js
  * @authors:
- *   Jeffrey Wilcke <jeff@ethdev.com>
- *   Marek Kotewicz <marek@ethdev.com>
- *   Marian Oancea <marian@ethdev.com>
- *   Fabian Vogelsteller <fabian@ethdev.com>
- *   Gav Wood <g@ethdev.com>
+ *   Jeffrey Wilcke <jeff@estdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
+ *   Marian Oancea <marian@estdev.com>
+ *   Fabian Vogelsteller <fabian@estdev.com>
+ *   Gav Wood <g@estdev.com>
  * @date 2014
  */
 
@@ -2651,7 +2651,7 @@ module.exports = Web3;
 */
 /**
  * @file allevents.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2014
  */
 
@@ -2741,7 +2741,7 @@ module.exports = AllSolidityEvents;
 */
 /** 
  * @file batch.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -2809,7 +2809,7 @@ module.exports = Batch;
 */
 /**
  * @file contract.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2014
  */
 
@@ -3121,7 +3121,7 @@ module.exports = ContractFactory;
 */
 /** 
  * @file errors.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -3166,7 +3166,7 @@ module.exports = {
 */
 /**
  * @file event.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2014
  */
 
@@ -3426,11 +3426,11 @@ module.exports = extend;
 */
 /** @file filter.js
  * @authors:
- *   Jeffrey Wilcke <jeff@ethdev.com>
- *   Marek Kotewicz <marek@ethdev.com>
- *   Marian Oancea <marian@ethdev.com>
- *   Fabian Vogelsteller <fabian@ethdev.com>
- *   Gav Wood <g@ethdev.com>
+ *   Jeffrey Wilcke <jeff@estdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
+ *   Marian Oancea <marian@estdev.com>
+ *   Fabian Vogelsteller <fabian@estdev.com>
+ *   Gav Wood <g@estdev.com>
  * @date 2014
  */
 
@@ -3675,8 +3675,8 @@ module.exports = Filter;
 */
 /**
  * @file formatters.js
- * @author Marek Kotewicz <marek@ethdev.com>
- * @author Fabian Vogelsteller <fabian@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
+ * @author Fabian Vogelsteller <fabian@estdev.com>
  * @date 2015
  */
 
@@ -3983,7 +3983,7 @@ module.exports = {
 */
 /**
  * @file function.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -4268,9 +4268,9 @@ module.exports = SolidityFunction;
 */
 /** @file httpprovider.js
  * @authors:
- *   Marek Kotewicz <marek@ethdev.com>
- *   Marian Oancea <marian@ethdev.com>
- *   Fabian Vogelsteller <fabian@ethdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
+ *   Marian Oancea <marian@estdev.com>
+ *   Fabian Vogelsteller <fabian@estdev.com>
  * @date 2015
  */
 
@@ -4427,7 +4427,7 @@ module.exports = HttpProvider;
 */
 /** 
  * @file iban.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -4656,7 +4656,7 @@ module.exports = Iban;
 */
 /** @file ipcprovider.js
  * @authors:
- *   Fabian Vogelsteller <fabian@ethdev.com>
+ *   Fabian Vogelsteller <fabian@estdev.com>
  * @date 2015
  */
 
@@ -4865,7 +4865,7 @@ module.exports = IpcProvider;
 */
 /** @file jsonrpc.js
  * @authors:
- *   Marek Kotewicz <marek@ethdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
  *   Aaron Kumavis <aaron@kumavis.me>
  * @date 2015
  */
@@ -4952,7 +4952,7 @@ module.exports = Jsonrpc;
 */
 /**
  * @file method.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -5118,7 +5118,7 @@ module.exports = Method;
 */
 /** @file db.js
  * @authors:
- *   Marek Kotewicz <marek@ethdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -5186,8 +5186,8 @@ module.exports = DB;
 */
 /**
  * @file est.js
- * @author Marek Kotewicz <marek@ethdev.com>
- * @author Fabian Vogelsteller <fabian@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
+ * @author Fabian Vogelsteller <fabian@estdev.com>
  * @date 2015
  */
 
@@ -5542,7 +5542,7 @@ module.exports = est;
 */
 /** @file est.js
  * @authors:
- *   Marek Kotewicz <marek@ethdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -5596,8 +5596,8 @@ module.exports = Net;
 */
 /**
  * @file est.js
- * @author Marek Kotewicz <marek@ethdev.com>
- * @author Fabian Vogelsteller <fabian@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
+ * @author Fabian Vogelsteller <fabian@estdev.com>
  * @date 2015
  */
 
@@ -6006,7 +6006,7 @@ module.exports = Swarm;
 */
 /** @file watches.js
  * @authors:
- *   Marek Kotewicz <marek@ethdev.com>
+ *   Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -6115,7 +6115,7 @@ module.exports = {
 */
 /** 
  * @file namereg.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -6157,7 +6157,7 @@ module.exports = {
 /**
  * @file property.js
  * @author Fabian Vogelsteller <fabian@frozeman.de>
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 
@@ -6302,11 +6302,11 @@ module.exports = Property;
 */
 /** 
  * @file requestmanager.js
- * @author Jeffrey Wilcke <jeff@ethdev.com>
- * @author Marek Kotewicz <marek@ethdev.com>
- * @author Marian Oancea <marian@ethdev.com>
- * @author Fabian Vogelsteller <fabian@ethdev.com>
- * @author Gav Wood <g@ethdev.com>
+ * @author Jeffrey Wilcke <jeff@estdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
+ * @author Marian Oancea <marian@estdev.com>
+ * @author Fabian Vogelsteller <fabian@estdev.com>
+ * @author Gav Wood <g@estdev.com>
  * @date 2014
  */
 
@@ -6580,7 +6580,7 @@ module.exports = Settings;
 */
 /** @file syncing.js
  * @authors:
- *   Fabian Vogelsteller <fabian@ethdev.com>
+ *   Fabian Vogelsteller <fabian@estdev.com>
  * @date 2015
  */
 
@@ -6675,7 +6675,7 @@ module.exports = IsSyncing;
 */
 /** 
  * @file transfer.js
- * @author Marek Kotewicz <marek@ethdev.com>
+ * @author Marek Kotewicz <marek@estdev.com>
  * @date 2015
  */
 

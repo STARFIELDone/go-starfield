@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/EvolutionStellarToken/go-EvolutionStellarToken/cmd/devp2p/internal/ethtest"
+	"github.com/EvolutionStellarToken/go-EvolutionStellarToken/cmd/devp2p/internal/esttest"
 	"github.com/EvolutionStellarToken/go-EvolutionStellarToken/crypto"
 	"github.com/EvolutionStellarToken/go-EvolutionStellarToken/p2p"
 	"github.com/EvolutionStellarToken/go-EvolutionStellarToken/p2p/rlpx"
@@ -34,7 +34,7 @@ var (
 		Usage: "RLPx Commands",
 		Subcommands: []cli.Command{
 			rlpxPingCommand,
-			rlpxEthTestCommand,
+			rlpxEstTestCommand,
 		},
 	}
 	rlpxPingCommand = cli.Command{
@@ -42,11 +42,11 @@ var (
 		Usage:  "ping <node>",
 		Action: rlpxPing,
 	}
-	rlpxEthTestCommand = cli.Command{
+	rlpxEstTestCommand = cli.Command{
 		Name:      "est-test",
 		Usage:     "Runs tests against a node",
 		ArgsUsage: "<node> <chain.rlp> <genesis.json>",
-		Action:    rlpxEthTest,
+		Action:    rlpxEstTest,
 		Flags: []cli.Flag{
 			testPatternFlag,
 			testTAPFlag,
@@ -72,7 +72,7 @@ func rlpxPing(ctx *cli.Context) error {
 	}
 	switch code {
 	case 0:
-		var h ethtest.Hello
+		var h esttest.Hello
 		if err := rlp.DecodeBytes(data, &h); err != nil {
 			return fmt.Errorf("invalid handshake: %v", err)
 		}
@@ -89,11 +89,11 @@ func rlpxPing(ctx *cli.Context) error {
 	return nil
 }
 
-// rlpxEthTest runs the est protocol test suite.
-func rlpxEthTest(ctx *cli.Context) error {
+// rlpxEstTest runs the est protocol test suite.
+func rlpxEstTest(ctx *cli.Context) error {
 	if ctx.NArg() < 3 {
 		exit("missing path to chain.rlp as command-line argument")
 	}
-	suite := ethtest.NewSuite(getNodeArg(ctx), ctx.Args()[1], ctx.Args()[2])
+	suite := esttest.NewSuite(getNodeArg(ctx), ctx.Args()[1], ctx.Args()[2])
 	return runTests(ctx, suite.AllTests())
 }

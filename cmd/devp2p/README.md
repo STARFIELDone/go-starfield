@@ -96,7 +96,7 @@ gest --datadir <datadir> --nodiscover --nat=none --networkid 19763 --verbosity 5
 
 Then, run the following command, replacing `<enode ID>` with the enode of the gest node: 
  ```
- devp2p rlpx est-test <enode ID> cmd/devp2p/internal/ethtest/testdata/fullchain.rlp cmd/devp2p/internal/ethtest/testdata/genesis.json
+ devp2p rlpx est-test <enode ID> cmd/devp2p/internal/esttest/testdata/fullchain.rlp cmd/devp2p/internal/esttest/testdata/genesis.json
 ```
  
 [est]: https://github.com/EvolutionStellarToken/devp2p/blob/master/caps/est.md

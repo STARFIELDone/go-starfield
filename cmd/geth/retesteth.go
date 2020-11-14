@@ -66,7 +66,7 @@ var (
 	}
 )
 
-type RetestethTestAPI interface {
+type RetestestTestAPI interface {
 	SetChainParams(ctx context.Context, chainParams ChainParams) (bool, error)
 	MineBlocks(ctx context.Context, number uint64) (bool, error)
 	ModifyTimestamp(ctx context.Context, interval uint64) (bool, error)
@@ -848,7 +848,7 @@ func retesteth(ctx *cli.Context) error {
 		extapiURL string
 	)
 	apiImpl := &RetestethAPI{}
-	var testApi RetestethTestAPI = apiImpl
+	var testApi RetestestTestAPI = apiImpl
 	var ethApi RetestethEthAPI = apiImpl
 	var debugApi RetestethDebugAPI = apiImpl
 	var web3Api RetestWeb3API = apiImpl
